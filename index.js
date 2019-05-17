@@ -11,9 +11,12 @@ import './db';
 import passport from './auth';
 
 
+
 dotenv.config();
 
 const app = express();
+
+// if (app.get('env') == 'development'){ dotenv.config(); }
 
 const port = process.env.PORT;
 
