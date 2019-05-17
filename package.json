@@ -1,0 +1,41 @@
+{
+  "name": "datalakeapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ignore hackerNews/* --exec babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spsreenath7/DataLAkeAPI.git"
+  },
+  "author": "Sreenath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spsreenath7/DataLAkeAPI/issues"
+  },
+  "homepage": "https://github.com/spsreenath7/DataLAkeAPI#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-async-handler": "^1.1.4",
+    "express-session": "^1.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.5.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
+}
