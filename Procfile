@@ -1,0 +1,1 @@
+web: nodemon --ignore hackerNews/* --exec babel-node index.js
