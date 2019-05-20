@@ -1,12 +1,14 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import contactsRouter from './api/contacts';
-import postsRouter from './api/posts';
+import privacyRouter from './api/privacy';
 import usersRouter from './api/users';
+import actsRouter from './api/activities';
 import bodyParser from 'body-parser';
 import loadContacts from './contactsData';
-import loadPosts from './postsData';
+import loadPrivacy from './privacyData';
 import loadUsers from './userData';
+import {loadActs} from './activityData';
 import './db';
 import passport from './auth';
 
@@ -22,8 +24,9 @@ const port = process.env.PORT;
 
 if (process.env.seedDb) {
   loadContacts();
-  loadPosts();
+  loadPrivacy();
   loadUsers();
+  loadActs();
 }
 
 app.use(passport.initialize());
@@ -35,9 +38,15 @@ app.use(bodyParser.urlencoded());
 
 app.use('/api/contacts', contactsRouter);
 
-app.use('/api/posts', passport.authenticate('jwt', {
+app.use('/api/privacy', passport.authenticate('jwt', {
   session: false
-}), postsRouter);
+}), privacyRouter);
+
+// app.use('/api/privacy',  privacyRouter);
+
+app.use('/api/acts', passport.authenticate('jwt', {
+  session: false
+}),  actsRouter);
 
 app.use('/api/users', usersRouter);
 

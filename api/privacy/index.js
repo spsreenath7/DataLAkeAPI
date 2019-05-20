@@ -1,38 +1,39 @@
 import express from 'express';
-import Post from './postsModel';
+import Privacy from './privacyModel';
 import asyncHandler from 'express-async-handler';
 
 const router = express.Router();// eslint-disable-line
 
 router.get('/', asyncHandler(async (req, res) => {
-  const posts = await Post.find();
-  return res.send(posts);
+  const privacy = await Privacy.find();
+  return res.send(privacy);
 }));
 
 // Add a post
 router.post('/', asyncHandler(async (req, res) => {
-  const newPost = req.body;
-  newPost.user = req.user._id;
-  if (newPost) {
-        const post = await Post.create(newPost);
-        return res.status(201).send({post});
+  const newPrivacy = req.body;
+  newPrivacy.user = req.user._id;
+  if (newPrivacy) {
+        const privacy = await Privacy.create(newPrivacy);
+        privacy.rules.push({catogery: "tech", level: "low"});
+        return res.status(201).send({privacy});
     }
 }));
 
 // upvote a post
 router.post('/:id/upvotes', asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const post = await Post.findById(id);
+  const privacy = await Privacy.findById(id);
   post.upvotes++;
-  await post.save();
-  return res.status(201).send({post});
+  await privacy.save();
+  return res.status(201).send({privacy});
 }));
 
 // get post
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const post = await Post.findById(id);
-    return res.send({post});
+    const privacy = await Privacy.findById(id);
+    return res.send({privacy});
 }));
 
 

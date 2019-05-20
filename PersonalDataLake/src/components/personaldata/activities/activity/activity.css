@@ -1,0 +1,24 @@
+.activity_item {
+    height: 100px; 
+}
+
+.activity-content {
+    height: 50px; 
+    padding-top: 5px;
+}
+
+.thumb {
+    padding-bottom: 30px;
+}
+
+.actile {
+    float: left;
+    font-weight: bold;
+}
+.actdate {
+    float: right;
+}
+
+.actprivacy {
+    float: right;
+}
