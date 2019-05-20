@@ -10,9 +10,7 @@ import S3FileUpload from 'react-s3';
 const config = {
     bucketName: 'mydltest1',
     // dirName: 'photos', /* optional */
-    region: 'eu-west-1',
-    accessKeyId: 'AKIAJZKGOMIDPEKWXEOA',
-    secretAccessKey: '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',
+
 }
 
 export default class FileUpload extends React.Component {
