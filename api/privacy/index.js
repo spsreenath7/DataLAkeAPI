@@ -1,6 +1,7 @@
 import express from 'express';
 import Privacy from './privacyModel';
 import asyncHandler from 'express-async-handler';
+import { request } from 'http';
 
 const router = express.Router();// eslint-disable-line
 
@@ -20,11 +21,11 @@ router.post('/', asyncHandler(async (req, res) => {
     }
 }));
 
-// upvote a post
-router.post('/:id/upvotes', asyncHandler(async (req, res) => {
+router.post('/:id/rules', asyncHandler(async (req, res) => {
   const id = req.params.id;
+  const newRule = req.body;
   const privacy = await Privacy.findById(id);
-  post.upvotes++;
+  privacy.rules.push(newRule);
   await privacy.save();
   return res.status(201).send({privacy});
 }));

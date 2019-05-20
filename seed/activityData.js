@@ -1,5 +1,5 @@
 import actsModel from '../api/activities/actsModel';
-import actsModel from '../api/users/userModel';
+import userModel from '../api/users/userModel';
 
 const acts = [
   {

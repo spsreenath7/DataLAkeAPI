@@ -34,7 +34,7 @@ router.post('/', asyncHandler(async (req, res) => {
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = req.params.id;
     const activity = await Activity.findById(id);
-    return res.send({activity});
+    return res.status(201).send({activity});
 }));
 
 router.post('/:id', asyncHandler(async (req, res) => {

@@ -25,6 +25,7 @@ export default class PersonalDataTab extends React.Component {
     this.editActivity = this.editActivity.bind(this);
     this.state = {
       acts: [{}],
+      privacy: [],
       activeTab: '1'
     };
   }
@@ -175,12 +176,13 @@ export default class PersonalDataTab extends React.Component {
   render() {
     
     let activities =this.state.acts;
+    let privacies =this.state.privacy;
 
     console.log("in perstab render");
     console.log(activities);
     return (
       <div>
-        <CreateItem addActivity={this.addActivity} userid={this.props.match.params.userid}/>
+        <CreateItem addActivity={this.addActivity}/>
         <Nav tabs>
           <NavItem className={this.state.activeTab === '1' ? 'active' : ''}>
             <NavLink

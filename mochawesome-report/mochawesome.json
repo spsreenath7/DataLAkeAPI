@@ -1,0 +1,293 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-05-20T05:01:23.575Z",
+    "end": "2019-05-20T05:01:31.162Z",
+    "duration": 7587,
+    "testsRegistered": 8,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 3,
+    "hasOther": true,
+    "skipped": 4,
+    "hasSkipped": true,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "07b3545d-a83f-474f-8111-2213746504da",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "9657f06a-1207-46f3-a6ce-64036cda12f9",
+        "title": "Data Lake activittyAPI GET all activity test",
+        "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\test\\testActsAPI.js",
+        "file": "\\test\\testActsAPI.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook for \"should get a list of activities\"",
+            "fullTitle": "Data Lake activittyAPI GET all activity test \"before all\" hook for \"should get a list of activities\"",
+            "timedOut": false,
+            "duration": 4949,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "testUser.username = 'user1';\ntestUser.password = 'test1';\n(0, _supertest2.default)(_index.app).post('/api/users').send(testUser).expect(200).then(function (res) {\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('success').equal(true);\n    token = res.body.token;\n    done();\n}).catch(function (error) {\n    console.error(\"Failed\", error);\n    done(error);\n});",
+            "err": {
+              "message": "Error: expected 200 \"OK\", got 401 \"Unauthorized\"",
+              "estack": "Error: expected 200 \"OK\", got 401 \"Unauthorized\"\n    at Test._assertStatus (node_modules\\supertest\\lib\\test.js:268:12)\n    at Test._assertFunction (node_modules\\supertest\\lib\\test.js:283:11)\n    at Test.assert (node_modules\\supertest\\lib\\test.js:173:18)\n    at Server.localAssert (node_modules\\supertest\\lib\\test.js:131:12)\n    at emitCloseNT (net.js:1629:8)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"
+            },
+            "isRoot": false,
+            "uuid": "75712980-e666-449d-949d-4b80936a81a8",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should get a list of activities",
+            "fullTitle": "Data Lake activittyAPI GET all activity test should get a list of activities",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "(0, _supertest2.default)(_index.app).get('/api/acts').set('Authorization', token).expect('Content-type', /json/).expect(200).then(function (res) {\n            // HTTP status should be 200\n            res.should.have.property('status').equal(200);\n            done();\n        }).catch(function (error) {\n            console.error(\"Failed\", error);\n            done(error);\n        });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "d0062c92-8adc-4ae7-8755-e6a0ae6a5e2e",
+            "isHook": false,
+            "skipped": true
+          },
+          {
+            "title": "should prevent access to activities without valid token",
+            "fullTitle": "Data Lake activittyAPI GET all activity test should prevent access to activities without valid token",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "93a477f7-c7c2-445f-851c-380166fd0d1a",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "d0062c92-8adc-4ae7-8755-e6a0ae6a5e2e",
+          "93a477f7-c7c2-445f-851c-380166fd0d1a"
+        ],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 120000
+      },
+      {
+        "uuid": "1b3c5684-4186-4959-b0d2-4a90ec257501",
+        "title": "Data Lake  activittyAPI POST and GET by id test",
+        "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\test\\testActsAPI.js",
+        "file": "\\test\\testActsAPI.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook for \"should get the newly added activity\"",
+            "fullTitle": "Data Lake  activittyAPI POST and GET by id test \"before all\" hook for \"should get the newly added activity\"",
+            "timedOut": false,
+            "duration": 15,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "testUser.username = 'user1';\ntestUser.password = 'test1';\n// calling home page api\n(0, _supertest2.default)(_index.app).post('/api/users').send(testUser).expect(200).then(function (res) {\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('success').equal(true);\n    token = res.body.token;\n    done();\n}).catch(function (error) {\n    console.error(\"Failed\", error);\n    done(error);\n});\n(0, _supertest2.default)(_index.app).post('/api/acts').set('Authorization', token).send(testAct).expect(200).then(function (res) {\n    // HTTP status should be 200\n    res.should.have.property('status').equal(201);\n    res.body.should.have.property('success').equal(true);\n    testact_id = res.activity._id;\n    done();\n}).catch(function (error) {\n    console.error(\"Failed\", error);\n    done(error);\n});",
+            "err": {
+              "message": "Error: done() called multiple times",
+              "estack": "Error: done() called multiple times\n    at C:/Users/Sreenath/Downloads/latest/NodeLabs/DataLakeAPI/test/testActsAPI.js:87:17\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            },
+            "isRoot": false,
+            "uuid": "45a04f18-7b0f-459a-bf6a-c0f642975936",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should get the newly added activity",
+            "fullTitle": "Data Lake  activittyAPI POST and GET by id test should get the newly added activity",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "(0, _supertest2.default)(_index.app).get('/api/acts/' + testact_id).set('Authorization', token).expect('Content-type', /json/).expect(200).then(function (res) {\n            // HTTP status should be 200\n            res.should.have.property('status').equal(201);\n            res.body.activity.should.have.property('_id');\n            res.body.activity.url.should.equal(\"www.npm.com\");\n            done();\n        }).catch(function (error) {\n            console.error(\"Failed\", error);\n            done(error);\n        });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "310251a6-c5b8-42d7-96ca-e2a88de697e1",
+            "isHook": false,
+            "skipped": true
+          },
+          {
+            "title": "should not return the any activity",
+            "fullTitle": "Data Lake  activittyAPI POST and GET by id test should not return the any activity",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "cc2c340e-210e-474e-85f1-8a4d61ee7376",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "310251a6-c5b8-42d7-96ca-e2a88de697e1",
+          "cc2c340e-210e-474e-85f1-8a4d61ee7376"
+        ],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 120000
+      },
+      {
+        "uuid": "c9b9a44f-4aed-47f2-90e2-44beef9012da",
+        "title": "Users API test",
+        "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\test\\testUsersAPI.js",
+        "file": "\\test\\testUsersAPI.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "Users API test \"before all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "testUser.username = 'user1';\ntestUser.password = 'test1';\ninvalidUser.username = 'chancer1';\ninvalidUser.password = 'bad1';\ndone();",
+            "err": {},
+            "isRoot": false,
+            "uuid": "1c2d74ac-e544-4866-9c05-3f61753ecad8",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should register a user",
+            "fullTitle": "Users API test should register a user",
+            "timedOut": false,
+            "duration": 1998,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var newUser = {\n            username: \"fred\",\n            password: \"apassword\"\n        };\n        (0, _supertest2.default)(_index.app).post('/api/users').send(newUser).query({\n            action: 'register'\n        }).expect('Content-type', /json/).expect(201) // This is the HTTP response\n        .then(function (res) {\n            // HTTP status should be 200\n            res.should.have.property('status').equal(201);\n            done();\n        }).catch(function (error) {\n            console.error(\"Failed\", error);\n            done(error);\n        });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "dd1751d9-a433-4649-8957-ff0f70001a09",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "should return a user token for valid user",
+            "fullTitle": "Users API test should return a user token for valid user",
+            "timedOut": false,
+            "duration": 251,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "return (0, _supertest2.default)(_index.app).post('/api/users').send(testUser).expect('Content-type', /json/).expect(200) // This is the HTTP response\n        .then(function (res) {\n            // HTTP status should be 200\n            res.should.have.property('status').equal(200);\n            res.body.success.should.be.true;\n            res.body.token.should.exist;\n        }).catch(function (error) {\n            console.error(\"Failed\", error);\n            throw error;\n        });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "0acbc7a9-d1c3-42f3-874a-4b0d9369ea63",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "should return a user token for valid user",
+            "fullTitle": "Users API test should return a user token for valid user",
+            "timedOut": false,
+            "duration": 243,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "a6cd6abf-1d84-4983-931b-c12a852bbdbc",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "should not return a token for invalid user",
+            "fullTitle": "Users API test should not return a token for invalid user",
+            "timedOut": false,
+            "duration": 5,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "(0, _supertest2.default)(_index.app).post('/api/users').send(invalidUser).expect('Content-type', /json/).expect(401) // This is the HTTP response\n        .then(function (res) {\n            // HTTP status should be 200\n            res.should.have.property('status').equal(401);\n            res.body.success.should.be.false;\n            _should2.default.not.exist(res.body.token);\n            done();\n        }).catch(function (error) {\n            console.error(\"Failed\", error);\n            done(error);\n        });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "514f6870-c55e-4b48-8c32-5c7c6c27840c",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "dd1751d9-a433-4649-8957-ff0f70001a09",
+          "0acbc7a9-d1c3-42f3-874a-4b0d9369ea63",
+          "a6cd6abf-1d84-4983-931b-c12a852bbdbc",
+          "514f6870-c55e-4b48-8c32-5c7c6c27840c"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 2497,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 120000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}

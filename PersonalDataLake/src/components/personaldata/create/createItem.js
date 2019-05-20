@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Collapse, Button, CardBody, Card, Col, Row, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import activityDetail from '../../../datastore/activityAPI';
 import activityAPI from '../../../datastore/activityAPI';
+import * as api from '../../../api';
 import cuid from 'cuid';
+
+const PrivacyOption = (props) =>
+<option>{props.label} ..</option>
+ ;
 
 class CreateItem extends Component {
     constructor(props) {
@@ -20,13 +25,34 @@ class CreateItem extends Component {
             catogery: '',
             privacy: '',
             transtype: '',
-            amount: ''
+            amount: '',
+            privacylist: []
         };
     }
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value });
         console.log(e.target.name + ' : ' + e.target.value);
     }
+
+    // async componentDidMount() {
+    //     this._isMounted = true
+    //     try {
+    //         const resp = await api.getPrivacy();
+    //         if (this._isMounted) {
+    //             this.setState({
+    //                 privacylist: resp
+    //             });
+    //         }
+    
+    //     } catch (e) {
+    //         if (this._isMounted) this.setState({
+                
+    //         });
+    //     }
+    // };
+
+
+    
     handleAdd = (e) => {
         e.preventDefault();
         let newitemtype = this.state.itemtype.trim();
@@ -36,7 +62,7 @@ class CreateItem extends Component {
         let newcatogery = this.state.catogery.trim();
         let newprivacy = this.state.privacy.trim();
         let newtranstype = this.state.transtype.trim();
-        let newamount = this.state.amount.trim();        
+        let newamount = this.state.amount.trim();
 
         if (newitemtype === 'Activity') {
             // activityAPI.add(newtitle, newurl, newdate, newcatogery, newprivacy);
@@ -53,26 +79,9 @@ class CreateItem extends Component {
             this.props.addActivity(newact);
             this.toggle();
         }
-        // if (newitemtype === 'finance') {
-        //     // activityAPI.add(newtitle, newurl, newdate, newcatogery, newprivacy);
-        //     let newactid = cuid();
-        //     let newact = {
-        //         id: newactid,
-        //         with: newtitle,
-        //         account: newurl,
-        //         date: newdate,
-        //         catogery: newcatogery,
-        //         privacy: newprivacy,
-        //         transtype: newtranstype,
-        //         amount: newamount
-        //     }
-        //     this.props.addActivity(newact);
-        //     this.toggle();
-        // }
-        // let {name, email, gender, contact} = this.state ;
-
-
     };
+
+
 
     handleCancel = (e) => {
         this.setState({
@@ -88,18 +97,41 @@ class CreateItem extends Component {
     }
 
 
-    toggle() {
+    async toggle() {
         this.setState(state => ({ collapse: !state.collapse }));
+        try {
+            console.log("inside toggle:");
+            const resp = await api.getPrivacy();
+            console.log("count of responses :");
+                
+                this.setState({
+                    privacylist: resp,
+                    collapse: !this.state.collapse
+                });
+                console.log(this.state.privacylist);
+            
+    
+        } catch (e) {
+            this.setState(state => ({ collapse: !state.collapse }));
+        }
+        
     }
 
     render() {
-        let placehold= 'URL of the content';
-        if(this.state.itemtype === 'finance')
-        {
-            placehold= 'enter relevent account number';
+        let placehold = 'URL of the content';
+        if (this.state.itemtype === 'finance') {
+            placehold = 'enter relevent account number';
         }
-        
-        
+        let privacylist = this.state.privacylist;
+    
+        console.log("Inside render 1234");
+        console.log(privacylist);
+    
+        let privacyOptions = privacylist.map(
+          (option) => <PrivacyOption option={option} />
+        );
+
+
         return (
             <div>
                 <Button color="success" onClick={this.toggle} style={{ marginBottom: '1rem', padding: 'right' }}>Create custom item</Button>
@@ -143,12 +175,14 @@ class CreateItem extends Component {
                                                 <Label for="exampleCity">Catogery</Label>
                                                 <Input onChange={this.handleChange} type="select" onChange={this.handleChange} id="catogery" name="catogery">
                                                     <option value={this.state.catogery}>Select</option>
-                                                    <option>Academic</option>
+                                                    {privacyOptions}
+                                                    {/* <option>Academic</option>
                                                     <option>Work</option>
                                                     <option>Social</option>
-                                                    <option>Utility</option>
+                                                    <option>Utility</option> */}
                                                 </Input>
                                             </FormGroup>
+
                                         </Col>
                                         <Col md={4}>
                                             {this.state.itemtype === 'finance' ?
@@ -170,34 +204,22 @@ class CreateItem extends Component {
                                             }
                                         </Col>
                                     </Row>
+                                    <Row form>
+                                        <FormGroup>
+                                            <span>{this.state.privacylist}</span>
+                                        </FormGroup>
+                                    </Row>
 
                                     <Row form>
-                                        <FormGroup inline>
-
-                                            <Label >Privacy</Label>
-
-                                            <FormGroup check>
-                                                <Label check>
-                                                    <Input value="low" checked={this.state.privacy === "low"}
-                                                        onChange={this.handleChange} type="radio" name="privacy" id="privacy" />{' '}
-                                                    Low
-                                                </Label>
-                                            </FormGroup>
-                                            <FormGroup check>
-                                                <Label check>
-                                                    <Input value="medium" checked={this.state.privacy === "medium"}
-                                                        onChange={this.handleChange} type="radio" name="privacy" id="privacy" />{' '}
-                                                    medium
-                                                </Label>
-                                            </FormGroup>
-                                            <FormGroup check>
-                                                <Label check>
-                                                    <Input value="high" checked={this.state.privacy === "high"}
-                                                        onChange={this.handleChange} type="radio" name="privacy" id="privacy" />{' '}
-                                                    High
-                                                </Label>
-                                            </FormGroup>
-
+                                        <FormGroup>
+                                            <Label for="exampleSelect">Select</Label>
+                                            <Input type="select" name="select" id="exampleSelect">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </Input>
                                         </FormGroup>
                                     </Row>
                                 </Form>

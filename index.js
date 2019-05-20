@@ -16,18 +16,18 @@ import passport from './auth';
 
 dotenv.config();
 
-const app = express();
+export const app = express(); 
 
 // if (app.get('env') == 'development'){ dotenv.config(); }
 
 const port = process.env.PORT;
 
-if (process.env.seedDb) {
-  loadContacts();
-  loadPrivacy();
-  loadUsers();
-  loadActs();
-}
+// if (process.env.seedDb) {
+//   loadContacts();
+//   loadPrivacy();
+//   loadUsers();
+//   loadActs();
+// }
 
 app.use(passport.initialize());
 
@@ -36,7 +36,6 @@ app.use(passport.initialize());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-app.use('/api/contacts', contactsRouter);
 
 app.use('/api/privacy', passport.authenticate('jwt', {
   session: false

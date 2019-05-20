@@ -1,10 +1,21 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import seed from './seed';
+import {Mockgoose} from 'mockgoose';
 
 dotenv.config();
 
 // Connect to database
-mongoose.connect(process.env.mongoDB);
+if (process.env.NODE_ENV === 'test') {
+    // use mockgoose for testing
+    const mockgoose=new Mockgoose(mongoose);
+    mockgoose.prepareStorage().then(()=>{
+      mongoose.connect(process.env.mongoDB);
+    });
+  } else {
+    // use the real deal for everything else
+    mongoose.connect(process.env.mongoDB);
+  }
 // Populate DB with sample data
 const db = mongoose.connection;
 
@@ -16,4 +27,5 @@ db.on('disconnected', () => {
 });
 db.once('open', () => {
     console.log(`database connected to ${db.name} on ${db.host}`);
+    seed();
 })
