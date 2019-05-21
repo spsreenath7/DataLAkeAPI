@@ -1,5 +1,6 @@
 import actsModel from '../api/activities/actsModel';
 import userModel from '../api/users/userModel';
+import privacyModel from '../api/privacy/privacyModel';
 
 const acts = [
   {
@@ -35,6 +36,29 @@ const acts = [
   },
 ];
 
+const privacy = [
+  {
+    label: 'last year',
+    statement: 'privacy for previous year',
+    rules: []
+  },
+  {
+    label: 'sample setting',
+    statement: 'hjhhgjh for ghjjjjj hgg',
+    rules: []
+  },
+  {
+    label: 'special allow',
+    statement: 'dasdsda for previous year',
+    rules: []
+  },
+  {
+    label: 'cuurent',
+    statement: 'privacy used now',
+    rules: []
+  }
+];
+
 const users = [{
   'username': 'user1',
   'password': 'test1',
@@ -67,9 +91,11 @@ export default async function loadActs() {
 
       //assign users randomly to each post
       acts.forEach((act)=>{act.user = ((Math.random<0.5)?user1._id : user2._id)});
+      privacy.forEach((p)=>{p.user = ((Math.random<0.5)?user1._id : user2._id)});
 
-
-      //Load posts data
+      await privacyModel.deleteMany();
+      await privacyModel.collection.insertMany(privacy);
+     
       await actsModel.deleteMany();
       await actsModel.collection.insertMany(acts);
       console.info(`${acts.length} posts were successfully stored.`);

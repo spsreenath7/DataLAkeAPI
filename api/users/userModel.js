@@ -35,6 +35,7 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.statics.findByUserName = function(username) {
+    
     return this.findOne({ username: username});
   };
 

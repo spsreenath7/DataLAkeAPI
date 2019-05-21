@@ -3,7 +3,7 @@ import actsModel from '../actsModel';
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-describe('postModelTests', () => {
+describe('Activity model test', () => {
 
     let act = {};
     //create a post with random user id before each test

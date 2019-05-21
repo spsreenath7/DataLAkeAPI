@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --ignore PersonalDataLake/* --exec babel-node index.js",
-    "test": "cross-env NODE_ENV=test mocha --require babel-core/register --require babel-polyfill --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=unit-tests.html --exit",
-    "unit-test": "cross-env NODE_ENV=test mocha './api/**/tests/*.js --require babel-core/register --require babel-polyfill --exit  --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=contact-api-tests.html --exit"
+    "test": "cross-env NODE_ENV=test mocha --require babel-core/register --require babel-polyfill --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=api-tests.html --exit",
+    "unit-test": "cross-env NODE_ENV=test mocha './api/**/tests/*.js --require babel-core/register --require babel-polyfill --exit  --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=unit-tests.html --exit"
   },
   "repository": {
     "type": "git",

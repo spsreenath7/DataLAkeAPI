@@ -5,8 +5,8 @@ import asyncHandler from 'express-async-handler';
 const router = express.Router();// eslint-disable-line
 
 router.get('/', asyncHandler(async (req, res) => {
-  const acts = await Activity.find();
-  return res.send(acts);
+  const acts = await Activity.find({user : req.user._id}, function (err, docs) {return res.send(docs);});
+  
 }));
 
 // Add a post

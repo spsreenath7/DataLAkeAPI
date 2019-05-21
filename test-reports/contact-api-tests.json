@@ -5,9 +5,9 @@
     "passes": 11,
     "pending": 0,
     "failures": 0,
-    "start": "2019-05-20T05:57:52.501Z",
-    "end": "2019-05-20T05:57:53.102Z",
-    "duration": 601,
+    "start": "2019-05-20T22:56:31.702Z",
+    "end": "2019-05-20T22:56:32.314Z",
+    "duration": 612,
     "testsRegistered": 11,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "e99f97d4-bbf5-474f-b678-823a9a5cc811",
+    "uuid": "8b8791cb-f64c-4940-adac-e58e84383e91",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "9b6ce279-313a-4faa-98e0-b7d0970958fc",
+        "uuid": "7f549275-432c-4db1-a474-4c660e022efa",
         "title": "postModelTests",
         "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\api\\activities\\tests\\testActivitySchema.js",
         "file": "\\api\\activities\\tests\\testActivitySchema.js",
@@ -44,7 +44,7 @@
             "code": "var id = _mongoose2.default.Types.ObjectId().toString(); //generates pseudo random ObjectID \nact = {\n    user: id,\n    title: \"A title\",\n    url: \"random.com\"\n};",
             "err": {},
             "isRoot": false,
-            "uuid": "d6010f78-9415-4b45-b399-7fc65eca3137",
+            "uuid": "96facfe5-0217-4a51-a25b-f8376cdf9ba7",
             "isHook": true,
             "skipped": false
           }
@@ -55,7 +55,7 @@
             "title": "should validate a post with a user and title",
             "fullTitle": "postModelTests should validate a post with a user and title",
             "timedOut": false,
-            "duration": 15,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -64,7 +64,7 @@
             "code": "// const post={user: \"5ca22a64816cd8423c27214d\", title: \"A title\"};\nvar m = new _actsModel2.default(act);\nm.validate(function (err) {\n    _should2.default.not.exist(err);\n    m.title.should.equal(act.title);\n    m.user.toString().should.equal(act.user);\n    //    m.title.should.equal(\"A title\");\n    //    m.user.toString().should.equal(\"5ca22a64816cd8423c27214d\");\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "6b323d91-35d9-4536-9429-d26a284842c3",
+            "uuid": "bf5227ed-80e8-4bad-bcb3-0adada552829",
             "isHook": false,
             "skipped": false
           },
@@ -72,7 +72,7 @@
             "title": "should require a user and title",
             "fullTitle": "postModelTests should require a user and title",
             "timedOut": false,
-            "duration": 3,
+            "duration": 4,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -81,26 +81,26 @@
             "code": "var wrongact = { url: \"qaz.cbn.xom\" };\n        var m = new _actsModel2.default(wrongact);\n        m.validate(function (err) {\n            var errors = err.errors;\n            errors.should.have.property(\"user\");\n            errors.should.have.property(\"title\");\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "039751b4-b143-49b6-b898-2be8b63e3715",
+            "uuid": "1d0650c0-d626-41aa-a4d9-76f1c5ec3fa3",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "6b323d91-35d9-4536-9429-d26a284842c3",
-          "039751b4-b143-49b6-b898-2be8b63e3715"
+          "bf5227ed-80e8-4bad-bcb3-0adada552829",
+          "1d0650c0-d626-41aa-a4d9-76f1c5ec3fa3"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 18,
+        "duration": 15,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "4e9be4a2-bbd0-44fc-a97a-b18273706ee0",
+        "uuid": "615b2468-b6be-48bc-9b1d-e0f0325e6158",
         "title": "privacy model test",
         "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\api\\privacy\\tests\\testPrivacySchema.js",
         "file": "\\api\\privacy\\tests\\testPrivacySchema.js",
@@ -116,7 +116,7 @@
             "code": "var id = _mongoose2.default.Types.ObjectId().toString(); //generates pseudo random ObjectID \nprivacy = {\n    user: id,\n    label: \"privacy1\"\n};",
             "err": {},
             "isRoot": false,
-            "uuid": "3a5257f0-0cf5-4b08-8cf9-c3f4b0028425",
+            "uuid": "ca53c97e-f773-48c9-8686-cb9798876720",
             "isHook": true,
             "skipped": false
           }
@@ -127,7 +127,7 @@
             "title": "should validate a privacy with a label and user ",
             "fullTitle": "privacy model test should validate a privacy with a label and user ",
             "timedOut": false,
-            "duration": 4,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -136,7 +136,7 @@
             "code": "var m = new _privacyModel2.default(privacy);\nm.validate(function (err) {\n    _should2.default.not.exist(err);\n    m.label.should.equal(privacy.label);\n    m.user.toString().should.equal(privacy.user);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "0ace8ad1-9637-487e-b672-5e6c8fc4d85c",
+            "uuid": "b7856174-6220-4ed0-a7d0-3b012b1530c5",
             "isHook": false,
             "skipped": false
           },
@@ -153,7 +153,7 @@
             "code": "var incorrectPrivacy = {\n            statement: \" this privacy statement\"\n        };\n        var m = new _privacyModel2.default(incorrectPrivacy);\n        m.validate(function (err) {\n            var errors = err.errors;\n            errors.should.have.property(\"label\");\n            errors.should.have.property(\"user\");\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "969d8f9b-1aad-4faf-ade3-ca961aafdf8d",
+            "uuid": "a700a48f-700c-4b4e-aa3a-bc95e7afb747",
             "isHook": false,
             "skipped": false
           },
@@ -161,7 +161,7 @@
             "title": "should be able to add a rule to privacy",
             "fullTitle": "privacy model test should be able to add a rule to privacy",
             "timedOut": false,
-            "duration": 5,
+            "duration": 4,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -170,7 +170,7 @@
             "code": "var m = new _privacyModel2.default(privacy);\nm.rules.push({\n    catogery: \"work\",\n    level: \"low\"\n});\nm.validate(function (err) {\n    _should2.default.not.exist(err);\n    m.rules[0].catogery.should.equal(\"work\");\n    m.rules[0].level.should.equal(\"low\");\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "2f137b75-50d5-460a-9068-2350c81d9872",
+            "uuid": "51bd9d27-2785-4b1f-a8da-853104563f61",
             "isHook": false,
             "skipped": false
           },
@@ -178,7 +178,7 @@
             "title": "should require a both catogery and level to add a rule to privacy",
             "fullTitle": "privacy model test should require a both catogery and level to add a rule to privacy",
             "timedOut": false,
-            "duration": 2,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -187,28 +187,28 @@
             "code": "var m = new _privacyModel2.default(privacy);\nm.rules.push({\n    level: \"high\"\n});\nm.validate(function (err) {\n    _should2.default.exist(err);\n    var errors = err.errors;\n    errors.should.have.property(\"rules.0.catogery\");\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "bfcb1b82-a894-4f0f-9b37-22c94f046696",
+            "uuid": "8e12e0de-c99a-4a45-bb5a-0624c79d42f3",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "0ace8ad1-9637-487e-b672-5e6c8fc4d85c",
-          "969d8f9b-1aad-4faf-ade3-ca961aafdf8d",
-          "2f137b75-50d5-460a-9068-2350c81d9872",
-          "bfcb1b82-a894-4f0f-9b37-22c94f046696"
+          "b7856174-6220-4ed0-a7d0-3b012b1530c5",
+          "a700a48f-700c-4b4e-aa3a-bc95e7afb747",
+          "51bd9d27-2785-4b1f-a8da-853104563f61",
+          "8e12e0de-c99a-4a45-bb5a-0624c79d42f3"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 12,
+        "duration": 11,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "b5e752ae-9705-47c6-8d0f-34d506d9fec5",
+        "uuid": "7c369567-fa62-407e-a336-cc08c52b6f1c",
         "title": "userModelTests",
         "fullFile": "C:\\Users\\Sreenath\\Downloads\\latest\\NodeLabs\\DataLakeAPI\\api\\users\\tests\\testUsersSchema.js",
         "file": "\\api\\users\\tests\\testUsersSchema.js",
@@ -228,7 +228,7 @@
             "code": "var user = { auser: \"This is not valid\" };\n        var m = new _userModel2.default(user);\n        m.validate(function (err) {\n            _should2.default.exist(err);\n            var errors = err.errors;\n            errors.should.have.property(\"username\");\n            errors.should.have.property(\"password\");\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "486cfcd5-f316-4472-a0a6-3de148f38737",
+            "uuid": "11adad96-e46b-4015-834e-e6e9aefb580c",
             "isHook": false,
             "skipped": false
           },
@@ -245,7 +245,7 @@
             "code": "var username = \"fxwalsh\";\nvar password = \"pass\";\nvar user = { username: username, password: password };\nvar m = new _userModel2.default(user);\nm.validate(function (err) {\n    _should2.default.not.exist(err);\n    m.username.should.equal(username);\n    m.password.should.equal(password);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "94febb0a-bda0-432b-a929-01b2ac0e02f8",
+            "uuid": "7d2c5423-8c14-4613-b6dc-6284356357bf",
             "isHook": false,
             "skipped": false
           },
@@ -253,7 +253,7 @@
             "title": "should search using username",
             "fullTitle": "userModelTests should search using username",
             "timedOut": false,
-            "duration": 10,
+            "duration": 14,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -262,7 +262,7 @@
             "code": "return callSandboxedFn(this, slice.call(arguments), callback, handleFn);",
             "err": {},
             "isRoot": false,
-            "uuid": "a67aea36-d794-4d6a-b55f-97511b9b6bec",
+            "uuid": "9e05d805-6695-4607-9170-4cc7eb7d2d21",
             "isHook": false,
             "skipped": false
           },
@@ -270,7 +270,7 @@
             "title": "should detect matching passwords",
             "fullTitle": "userModelTests should detect matching passwords",
             "timedOut": false,
-            "duration": 268,
+            "duration": 279,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -279,7 +279,7 @@
             "code": "// eslint-disable-line no-unused-vars\n                return callSandboxedFn(this, slice.call(arguments), callback, handleAsyncFn);",
             "err": {},
             "isRoot": false,
-            "uuid": "4419adc3-b81a-40a1-bd44-86468bade5fb",
+            "uuid": "0ea3a75a-1f9b-4472-9af4-b47b7076de78",
             "isHook": false,
             "skipped": false
           },
@@ -287,7 +287,7 @@
             "title": "should reject incorrect passwords",
             "fullTitle": "userModelTests should reject incorrect passwords",
             "timedOut": false,
-            "duration": 242,
+            "duration": 240,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -296,23 +296,23 @@
             "code": "var username = \"fxwalsh\";\n        var password1 = \"$2a$10$hxklBTD1KLdYOCrulbtf8OKxjxFEc5WBCODCCCYGb67udslRc0mHi\";\n        var password2 = \"$2a$10$SHxM7TRWShaNrJN1IDoOduBDmcll5sSJmYN9RHFjuGxP/iZr8Y4pe\";\n        var user1 = { username: username, password: password1 };\n        var user2 = { username: username, password: password2 };\n        var m1 = new _userModel2.default(user1);\n        var m2 = new _userModel2.default(user2);\n        m1.comparePassword(m2.password, function (err, result) {\n            _should2.default.not.exist(err);\n            result.should.not.be.true;\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "48ba184d-bf49-4ccd-986c-4e8e6ade9b3b",
+            "uuid": "ae86f543-c034-4894-8431-4d195523ea66",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "486cfcd5-f316-4472-a0a6-3de148f38737",
-          "94febb0a-bda0-432b-a929-01b2ac0e02f8",
-          "a67aea36-d794-4d6a-b55f-97511b9b6bec",
-          "4419adc3-b81a-40a1-bd44-86468bade5fb",
-          "48ba184d-bf49-4ccd-986c-4e8e6ade9b3b"
+          "11adad96-e46b-4015-834e-e6e9aefb580c",
+          "7d2c5423-8c14-4613-b6dc-6284356357bf",
+          "9e05d805-6695-4607-9170-4cc7eb7d2d21",
+          "0ea3a75a-1f9b-4472-9af4-b47b7076de78",
+          "ae86f543-c034-4894-8431-4d195523ea66"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 523,
+        "duration": 536,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000

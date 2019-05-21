@@ -31,7 +31,9 @@ router.post('/', asyncHandler(async (req, res) => {
         msg: 'Successful created new user.',
       });
     } else {
+
       const user = await User.findByUserName(req.body.username);
+      // console.log(user);
       if (!user) return res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
       user.comparePassword(req.body.password, (err, isMatch) => {
         if (isMatch && !err) {
