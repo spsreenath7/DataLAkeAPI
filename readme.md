@@ -1,4 +1,4 @@
-# Assignment 2 - Web app using React, Nodea nd Express.
+# Assignment 2 - Web app using React, Nodea and Express.
 
 Name: Sreenath S P
 
@@ -56,7 +56,7 @@ private views (require login)
 + /home/ - user home once logged in.
 + /home/profile - displays user profile also allowed to edit.
 + /home/pds - dispalyes the various personal data stored for the user, under three areas and allowed to add a custom item.
-+ /home/privacy - 
++ /home/privacy - dipalyes the privacy options created by you.
 
 # Web API Endpoint Reference
 Base URL: localhost:8080/api
@@ -106,7 +106,7 @@ seedDb=true
 secret=mySecret
 
 ## Security and Authentication
-. . . . Give details of any autentication/security implemented in on the API. Indicate which routes are protected.
+
 In Users API, mongoose schema is enabled with pre configuration to encrypt the password using 'Bcrypt' and salting is done for the encrypted password. This pre config allows to protect the password when ever the user sign-up to the site.
 
 Using Users API whenever a user signup/login a jwt token is created and sent along with the response body. For further Activity and Privacy API calls this token must be passed. Here 'passport' a express middleware service is used to check the validity for the session based on the token passed.
@@ -114,7 +114,7 @@ Using Users API whenever a user signup/login a jwt token is created and sent alo
 The endpoints that involves this token based authentication are /api/privacy and /api/acts.
 
 ## Testing
-. . . . Briefly explain any testing strategy that accompanies the project, including and example report if you have one...
+
 Unit testing and Integration testing is done for the individual API end points. 
 Unit testing involves test cases that validates the moongose models. Here each endpoint's corresponding model contains a set of test cases that test the their functionality. Sinon.js is used to stub the model calls that involves DB interaction, so that we can verfy only whether modelcalls the correct method to access the DB.
 
