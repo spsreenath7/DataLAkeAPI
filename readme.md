@@ -149,12 +149,12 @@ https://ant.design/docs/react/introduce
 
 
 
-[model]: ./images/datamodel.png
-[image1]: ./images/login.png
-[image2]: ./images/signup.png
-[image4]: ./images/profile.png
-[image6]: ./images/activityList.png
-[image8]: ./images/createitem.png
-[image9]: ./images/privacyscreen.png
-[testingimage1]: ./images/unitTest.png
-[testingimage2]: ./images/integTest.png
+[model]: ./images/datamodel.PNG
+[image1]: ./images/login.PNG
+[image2]: ./images/signup.PNG
+[image4]: ./images/profile.PNG
+[image6]: ./images/activityList.PNG
+[image8]: ./images/createitem.PNG
+[image9]: ./images/privacyscreen.PNG
+[testingimage1]: ./images/unitTest.PNG
+[testingimage2]: ./images/integTest.PNG
